@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#1C56A2">
+
+    <ImageView
+        android:id="@+id/image_logo"
+        android:layout_width="60dp"
+        android:layout_height="70dp"
+        android:src="@drawable/logo"
+        android:layout_margin="5dp"/>
+
+
+    <TextView
+        android:id="@+id/text_FIFA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FIFA World Cup"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:layout_toEndOf="@+id/image_logo"
+        android:layout_marginTop="10dp"/>
+    <TextView
+        android:id="@+id/text_season"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="The 22nd"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        android:layout_toEndOf="@id/image_logo"
+        android:layout_alignBottom="@id/image_logo"/>
+
+
+
+
+</RelativeLayout>
