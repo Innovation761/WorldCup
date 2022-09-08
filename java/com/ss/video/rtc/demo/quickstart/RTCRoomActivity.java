@@ -96,6 +96,8 @@ import java.util.Locale;
 public class RTCRoomActivity extends AppCompatActivity {
 
     private List<Msg> msgList = new ArrayList<>();
+//    private List<String> uids = new ArrayList<>();
+//    private FrameLayoutAdapter frameLayoutAdapter;
     private RecyclerView msgrecyclerView;
     private MsgAdapter adapter;
     private Button send;
@@ -208,9 +210,9 @@ public class RTCRoomActivity extends AppCompatActivity {
         mSpeakerIv.setOnClickListener((v) -> updateSpeakerStatus());
         mAudioIv.setOnClickListener((v) -> updateLocalAudioStatus());
         mVideoIv.setOnClickListener((v) -> updateLocalVideoStatus());
-        TextView roomIDTV = findViewById(R.id.room_id_text);
+        //TextView roomIDTV = findViewById(R.id.room_id_text);
         TextView userIDTV = findViewById(R.id.self_video_user_id_tv);
-        roomIDTV.setText(String.format("RoomID:%s", roomId));
+        //roomIDTV.setText(String.format("RoomID:%s", roomId));
         userIDTV.setText(String.format("UserID:%s", userId));
 
 
