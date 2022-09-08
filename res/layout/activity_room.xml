@@ -12,6 +12,7 @@
         android:id="@+id/self_video_container"
         android:layout_width="110dp"
         android:layout_height="140dp"
+        android:background="@color/white"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/title" />
 
@@ -19,6 +20,7 @@
         android:id="@+id/container_recycler_view"
         android:layout_width="0dp"
         android:layout_height="140dp"
+        android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/title"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/self_video_container"/>
@@ -33,7 +35,7 @@
     <FrameLayout
         android:id="@+id/message_frame"
         android:layout_width="300dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/bottom_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -83,7 +85,7 @@
             android:layout_marginLeft="90dp"
             android:layout_gravity="center_vertical"
             android:src="@drawable/speaker_on"
-             />
+            />
 
         <ImageView
             android:id="@+id/hang_up"
@@ -112,67 +114,67 @@
 
 
 
-<!--    <TextView-->
-<!--        android:id="@+id/self_video_user_id_tv"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:textSize="14dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/self_video_container"-->
-<!--        app:layout_constraintRight_toRightOf="@id/self_video_container" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/self_video_user_id_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textColor="@color/purple_700"-->
+    <!--        android:textSize="14dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/self_video_container"-->
+    <!--        app:layout_constraintRight_toRightOf="@id/self_video_container" />-->
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/remote_video_0_container"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/remote_video_2_container"-->
-<!--        app:layout_constraintLeft_toRightOf="@id/self_video_container"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/title" />-->
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/remote_video_0_container"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/remote_video_2_container"-->
+    <!--        app:layout_constraintLeft_toRightOf="@id/self_video_container"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/remote_video_0_user_id_tv"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:textSize="14dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_0_container"-->
-<!--        app:layout_constraintRight_toRightOf="@id/remote_video_0_container" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/remote_video_0_user_id_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textColor="@color/purple_700"-->
+    <!--        android:textSize="14dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_0_container"-->
+    <!--        app:layout_constraintRight_toRightOf="@id/remote_video_0_container" />-->
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/remote_video_1_container"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/bottom_bar"-->
-<!--        app:layout_constraintLeft_toLeftOf="parent"-->
-<!--        app:layout_constraintRight_toLeftOf="@id/remote_video_2_container"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/self_video_container" />-->
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/remote_video_1_container"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottom_bar"-->
+    <!--        app:layout_constraintLeft_toLeftOf="parent"-->
+    <!--        app:layout_constraintRight_toLeftOf="@id/remote_video_2_container"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/self_video_container" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/remote_video_1_user_id_tv"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:textSize="14dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_1_container"-->
-<!--        app:layout_constraintRight_toRightOf="@id/remote_video_1_container" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/remote_video_1_user_id_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textColor="@color/purple_700"-->
+    <!--        android:textSize="14dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_1_container"-->
+    <!--        app:layout_constraintRight_toRightOf="@id/remote_video_1_container" />-->
 
-<!--    <FrameLayout-->
-<!--        android:id="@+id/remote_video_2_container"-->
-<!--        android:layout_width="0dp"-->
-<!--        android:layout_height="0dp"-->
-<!--        app:layout_constraintBottom_toTopOf="@id/bottom_bar"-->
-<!--        app:layout_constraintLeft_toRightOf="@id/remote_video_1_container"-->
-<!--        app:layout_constraintRight_toRightOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@id/remote_video_0_container" />-->
+    <!--    <FrameLayout-->
+    <!--        android:id="@+id/remote_video_2_container"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="0dp"-->
+    <!--        app:layout_constraintBottom_toTopOf="@id/bottom_bar"-->
+    <!--        app:layout_constraintLeft_toRightOf="@id/remote_video_1_container"-->
+    <!--        app:layout_constraintRight_toRightOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/remote_video_0_container" />-->
 
-<!--    <TextView-->
-<!--        android:id="@+id/remote_video_2_user_id_tv"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textColor="@color/purple_700"-->
-<!--        android:textSize="14dp"-->
-<!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_2_container"-->
-<!--        app:layout_constraintRight_toRightOf="@id/remote_video_2_container" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/remote_video_2_user_id_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:textColor="@color/purple_700"-->
+    <!--        android:textSize="14dp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/remote_video_2_container"-->
+    <!--        app:layout_constraintRight_toRightOf="@id/remote_video_2_container" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

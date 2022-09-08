@@ -28,7 +28,7 @@
         android:background="@drawable/my_edit"
         android:hint="请输入房间名"
         android:textColorHighlight="@color/white"
-         />
+        />
 
     <EditText
         android:id="@+id/user_id_input"

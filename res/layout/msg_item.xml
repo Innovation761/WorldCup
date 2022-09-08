@@ -5,12 +5,26 @@
     android:padding="5dp"
     >
 
+    <TextView
+        android:id="@+id/left_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true" />
+    <TextView
+        android:id="@+id/right_user_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"/>
+
+
+
+
     <LinearLayout
         android:id="@+id/left_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/left_message"
-        android:layout_alignParentLeft="true"
+        android:layout_toRightOf="@id/left_user_id"
         >
 
         <TextView
@@ -23,12 +37,13 @@
             android:textColor="#000000"
             android:textSize="18sp"/>
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/right_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/right_message">
+        android:background="@drawable/right_message"
+        android:layout_toLeftOf="@id/right_user_id">
 
         <TextView
             android:id="@+id/right_msg"

@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.ss.bytertc.engine.RTCEngine;
 import com.ss.rtc.demo.quickstart.R;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 /**
@@ -27,7 +26,7 @@ import java.util.regex.Pattern;
  * - 展示当前 SDK 使用的版本号 {@link RTCEngine#getSdkVersion()}
  *
  * 有以下常见的注意事项：
- * 1.SDK必要的权限有：外部内存读写、摄像头权限、麦克风权限，其余完整的权限参见{@link src/main/AndroidManifest.xml}。
+ * 1.SDK必要的权限有：外部内存读写、摄像头权限、麦克风权限，其余完整的权限参见
  * 没有这些权限不会导致崩溃，但是会影响SDK的正常使用。
  * 2.SDK 对房间名、用户名的限制是：非空且最大长度不超过128位的数字、大小写字母、@ . _ \ -
  */
