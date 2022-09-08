@@ -96,9 +96,10 @@ import java.util.Locale;
 public class RTCRoomActivity extends AppCompatActivity {
 
     private List<Msg> msgList = new ArrayList<>();
-//    private List<String> uids = new ArrayList<>();
-//    private FrameLayoutAdapter frameLayoutAdapter;
+    private List<String> uids = new ArrayList<>();
+    private FrameLayoutAdapter container_adapter;
     private RecyclerView msgrecyclerView;
+    private RecyclerView container_recyclerView;
     private MsgAdapter adapter;
     private Button send;
     private EditText inputText;
@@ -133,6 +134,7 @@ public class RTCRoomActivity extends AppCompatActivity {
         public void onUserJoined(UserInfo userInfo, int elapsed) {
             super.onUserJoined(userInfo, elapsed);
             Log.d("IRTCRoomEventHandler", "onUserJoined: " + userInfo.getUid());
+            uids.add(userInfo.getUid());
         }
 
         /**
@@ -143,6 +145,7 @@ public class RTCRoomActivity extends AppCompatActivity {
             super.onUserLeave(uid, reason);
             Log.d("IRTCRoomEventHandler", "onUserLeave: " + uid);
             runOnUiThread(() -> removeRemoteView(uid));
+            uids.remove(uid);
         }
     };
 
@@ -155,7 +158,9 @@ public class RTCRoomActivity extends AppCompatActivity {
         public void onFirstRemoteVideoFrameDecoded(RemoteStreamKey remoteStreamKey, VideoFrameInfo frameInfo) {
             super.onFirstRemoteVideoFrameDecoded(remoteStreamKey, frameInfo);
             Log.d("IRTCVideoEventHandler", "onFirstRemoteVideoFrame: " + remoteStreamKey.toString());
-            runOnUiThread(() -> setRemoteView(remoteStreamKey.getRoomId(), remoteStreamKey.getUserId()));
+            int position = uids.size();
+            //runOnUiThread(() -> setRemoteView(remoteStreamKey.getRoomId(), remoteStreamKey.getUserId()));
+            runOnUiThread(()->container_adapter.notifyItemChanged(position));
         }
 
         /**
@@ -189,16 +194,21 @@ public class RTCRoomActivity extends AppCompatActivity {
 
         initUI(roomId, userId);
         initEngineAndJoinRoom(roomId, userId);
+        container_adapter = new FrameLayoutAdapter(uids, roomId);
+        container_recyclerView.setAdapter(container_adapter);
     }
 
     private void initUI(String roomId, String userId) {
+        container_recyclerView = findViewById(R.id.container_recycler_view);
+        container_recyclerView.setLayoutManager(new LinearLayoutManager(this, RecyclerView.HORIZONTAL, false));
+
         mSelfContainer = findViewById(R.id.self_video_container);
-        mRemoteContainerArray[0] = findViewById(R.id.remote_video_0_container);
-        mRemoteContainerArray[1] = findViewById(R.id.remote_video_1_container);
-        mRemoteContainerArray[2] = findViewById(R.id.remote_video_2_container);
-        mUserIdTvArray[0] = findViewById(R.id.remote_video_0_user_id_tv);
-        mUserIdTvArray[1] = findViewById(R.id.remote_video_1_user_id_tv);
-        mUserIdTvArray[2] = findViewById(R.id.remote_video_2_user_id_tv);
+//        mRemoteContainerArray[0] = findViewById(R.id.remote_video_0_container);
+//        mRemoteContainerArray[1] = findViewById(R.id.remote_video_1_container);
+//        mRemoteContainerArray[2] = findViewById(R.id.remote_video_2_container);
+//        mUserIdTvArray[0] = findViewById(R.id.remote_video_0_user_id_tv);
+//        mUserIdTvArray[1] = findViewById(R.id.remote_video_1_user_id_tv);
+//        mUserIdTvArray[2] = findViewById(R.id.remote_video_2_user_id_tv);
         findViewById(R.id.switch_camera).setOnClickListener((v) -> onSwitchCameraClick());
 
         mSpeakerIv = findViewById(R.id.switch_audio_router);
@@ -211,9 +221,9 @@ public class RTCRoomActivity extends AppCompatActivity {
         mAudioIv.setOnClickListener((v) -> updateLocalAudioStatus());
         mVideoIv.setOnClickListener((v) -> updateLocalVideoStatus());
         //TextView roomIDTV = findViewById(R.id.room_id_text);
-        TextView userIDTV = findViewById(R.id.self_video_user_id_tv);
+        //TextView userIDTV = findViewById(R.id.self_video_user_id_tv);
         //roomIDTV.setText(String.format("RoomID:%s", roomId));
-        userIDTV.setText(String.format("UserID:%s", userId));
+        //userIDTV.setText(String.format("UserID:%s", userId));
 
 
         initMsgs();
@@ -305,7 +315,7 @@ public class RTCRoomActivity extends AppCompatActivity {
         mRTCVideo.setLocalVideoCanvas(StreamIndex.STREAM_INDEX_MAIN, videoCanvas);
     }
 
-    private void setRemoteRenderView(String roomId, String uid, FrameLayout container) {
+    public void setRemoteRenderView(String roomId, String uid, FrameLayout container) {
         TextureView renderView = new TextureView(this);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(
                 ViewGroup.LayoutParams.MATCH_PARENT,
