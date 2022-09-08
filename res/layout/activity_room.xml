@@ -36,7 +36,7 @@
         android:id="@+id/message_frame"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="@id/bottom_bar"
+        app:layout_constraintTop_toBottomOf="@id/bottom_bar"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:background="@drawable/right_message">
@@ -52,6 +52,17 @@
     <include layout="@layout/title"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/switch_video"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:backgroundTint="#1155a8"
+    android:src="@drawable/switch_video"
+    android:layout_margin="16dp"
+    app:layout_constraintBottom_toTopOf="@id/switch_message"
+    app:layout_constraintRight_toRightOf="parent"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/switch_message"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -60,6 +71,7 @@
         android:layout_margin="16dp"
         app:layout_constraintBottom_toTopOf="@id/bottom_bar"
         app:layout_constraintRight_toRightOf="parent"/>
+
 
     <FrameLayout
         android:id="@+id/bottom_bar"
